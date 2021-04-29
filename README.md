@@ -9,6 +9,6 @@ Funcoes:
 - parseInt      converte texto para int (powInt)
 - Println       Print com salto de linha
 - PrintCenter   Imprime um texto centralizado
-- printModelMSX Imprime o modelo do MSX 1.0, 2.0, 2+
+- PrintMSX      Imprime o modelo do MSX em uso (1.0, 2.0, 2+, TR)
 
 
