@@ -1,3 +1,8 @@
+//==============================
+//Autor:      Dorival Biudes
+//Plataforma: MSX com Fusion C
+//==============================
+
 //Gera uma pausa forcada no aplicativo
 //todo: avaliar a versao do MSX para dar precisao nos segundos
 void pause(int seg) {
@@ -17,4 +22,26 @@ char* mid(char* str, int start, int len){
 	MemCopy(substr, &(str[start]), len);
     substr[len] = '\0';
     return substr;
+}
+
+//Print com mudanca de linha
+void Println(char* msg){
+    Print(msg); Print("\n\r");
+}
+
+//exponencial
+int powInt(int x, int y) {
+    for (int i = 0; i < y; i++) { x *= 10; }
+    return x;
+}
+
+//converte numero em formato texto para int
+int parseInt(char* chars) {
+    int sum = 0;
+    int len = StrLen(chars);
+    for (int x = 0; x < len; x++)     {
+        int n = chars[len - (x + 1)] - '0';
+        sum = sum + powInt(n, x);
+    }
+    return sum;
 }
