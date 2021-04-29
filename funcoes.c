@@ -24,32 +24,6 @@ char* mid(char* str, int start, int len){
     return substr;
 }
 
-//Print com mudanca de linha
-void Println(char* msg){
-    Print(msg); Print("\n\r");
-}
-
-//Imprime um texto centralizado
-void PrintCenter(char *msg, int col) {
-    int numspaces=(col-StrLen(msg))/2;
-    for(int i=0;i<numspaces;i++)
-        Print(" ");
-    Print(msg); Print("\n");
-}
-
-//Imprime a versao do MSX
-void printModelMSX () {
-    char *versao = malloc(9);
-    switch (ReadMSXtype()) {
-        case 0: StrConcat(versao, "MSX 1.0"); break;
-        case 1: StrConcat(versao, "MSX 2.0"); break;
-        case 2: StrConcat(versao, "MSX 2+ "); break;
-        case 3: StrConcat(versao, "Turbo R"); break;
-        default: StrConcat(versao, "MSX"); break;
-    }
-    Print(versao);
-}
-
 //exponencial
 int powInt(int x, int y) {
     for (int i = 0; i < y; i++) { x *= 10; }
@@ -66,3 +40,33 @@ int parseInt(char* chars) {
     }
     return sum;
 }
+
+//--- SAIDA DE TEXTO -----------------------------
+
+//Print com mudanca de linha
+void Println(char* msg){
+    Print(msg); Print("\n\r");
+}
+
+//Imprime um texto centralizado
+void PrintCenter(char *msg, int col) {
+    int numspaces=(col-StrLen(msg))/2;
+    for(int i=0;i<numspaces;i++)
+        Print(" ");
+    Print(msg); Print("\n");
+}
+
+//Imprime o modelo do MSX
+void PrintMSX() {
+    char *versao = malloc(9);
+    switch (ReadMSXtype()) {
+        case 0: StrConcat(versao, "MSX 1.0"); break;
+        case 1: StrConcat(versao, "MSX 2.0"); break;
+        case 2: StrConcat(versao, "MSX 2+ "); break;
+        case 3: StrConcat(versao, "Turbo R"); break;
+        default: StrConcat(versao, "MSX"); break;
+    }
+    Print(versao);
+}
+
+
