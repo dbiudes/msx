@@ -18,8 +18,8 @@ int ascii(char key){
 
 //retorna um trecho da string original conforme parametros
 char* mid(char* str, int start, int len){
-	char *substr = malloc(len+1);
-	MemCopy(substr, &(str[start]), len);
+    char *substr = malloc(len+1);
+    MemCopy(substr, &(str[start]), len);
     substr[len] = '\0';
     return substr;
 }
@@ -27,6 +27,27 @@ char* mid(char* str, int start, int len){
 //Print com mudanca de linha
 void Println(char* msg){
     Print(msg); Print("\n\r");
+}
+
+//Imprime um texto centralizado
+void PrintCenter(char *msg, int col) {
+    int numspaces=(col-StrLen(msg))/2;
+    for(int i=0;i<numspaces;i++)
+        Print(" ");
+    Print(msg); Print("\n");
+}
+
+//Imprime a versao do MSX
+void printModelMSX () {
+    char *versao = malloc(9);
+    switch (ReadMSXtype()) {
+        case 0: StrConcat(versao, "MSX 1.0"); break;
+        case 1: StrConcat(versao, "MSX 2.0"); break;
+        case 2: StrConcat(versao, "MSX 2+ "); break;
+        case 3: StrConcat(versao, "Turbo R"); break;
+        default: StrConcat(versao, "MSX"); break;
+    }
+    Print(versao);
 }
 
 //exponencial
